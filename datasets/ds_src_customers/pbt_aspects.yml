@@ -1,0 +1,96 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: Id
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each customer, typically in the form of an
+        email address or a unique string.
+      mappings: []
+      tags: []
+  - name: OwnerId
+    type: string
+    nullable: true
+    metadata:
+      description: Identifier for the owner of the customer record; Represents the
+        individual or entity responsible for managing the customer relationship.
+      mappings: []
+      tags: []
+  - name: IsDeleted
+    type: string
+    nullable: true
+    metadata:
+      description: Indicates whether the customer record has been marked as deleted.
+      mappings: []
+      tags: []
+  - name: Name
+    type: string
+    nullable: true
+    metadata:
+      description: The name of the customer, which may include first and last names
+        or business names.
+      mappings: []
+      tags: []
+  - name: CreatedDate
+    type: string
+    nullable: true
+    metadata:
+      description: Date when the customer record was created; Format is in YYYY-MM-DD.
+      mappings: []
+      tags: []
+  - name: CreatedById
+    type: string
+    nullable: true
+    metadata:
+      description: Identifier for the user who created the customer record.
+      mappings: []
+      tags: []
+  - name: LastModifiedDate
+    type: string
+    nullable: true
+    metadata:
+      description: Date and time when the customer record was last updated; Format
+        is in string representation.
+      mappings: []
+      tags: []
+  - name: LastModifiedById
+    type: string
+    nullable: true
+    metadata:
+      description: Identifier for the user who last modified the customer record.
+      mappings: []
+      tags: []
+  - name: SystemModstamp
+    type: string
+    nullable: true
+    metadata:
+      description: Timestamp indicating the last time the record was modified in the
+        system.
+      mappings: []
+      tags: []
+  - name: PartyId
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for the party associated with the customer record.
+      mappings: []
+      tags: []
+  - name: TotalLifeTimeValue
+    type: string
+    nullable: true
+    metadata:
+      description: The total lifetime value of the customer; Represents the total
+        revenue expected from the customer over their entire relationship with the
+        business.
+      mappings: []
+      tags: []
+  - name: CustomerStatusType
+    type: string
+    nullable: true
+    metadata:
+      description: Indicates the current status of the customer, reflecting their
+        engagement or relationship with the business.
+      mappings: []
+      tags: []
