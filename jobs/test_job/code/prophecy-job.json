@@ -1,0 +1,122 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "19315",
+    "jobId" : "jobs/test_job",
+    "name" : "test_job",
+    "schedule" : "0 0 0 1/1 * ? *",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    }
+  },
+  "processes" : {
+    "oBu9Qgu4w-uv3bPCTyRhO" : {
+      "id" : "oBu9Qgu4w-uv3bPCTyRhO",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "pl_xplore_phrophecy_source_gem",
+        "slug" : "pl_xplore_phrophecy_source_gem",
+        "x" : -60,
+        "y" : 140
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "in",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "out",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/pl_xplore_phrophecy_source_gem",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "xplore_prophecy" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "rIxXGw9tFLh8v_ra9k6Vr$$dEuSIteM5pCMDdYM9puH7" : {
+      "id" : "rIxXGw9tFLh8v_ra9k6Vr$$dEuSIteM5pCMDdYM9puH7",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Script_1",
+        "slug" : "Script_1",
+        "x" : -220,
+        "y" : 160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Nd4gvW69rBQ9oFMqa7u7E$$LTisaCpZ2mspjB9NzLaJW",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "oit3iRoR-hVm_5cUWRTZc$$jtUgYKj82wUhJBy31cBbt",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "code" : "print('job started')"
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "Et33bQWk5vFBzGz-VUddT",
+    "source" : "rIxXGw9tFLh8v_ra9k6Vr$$dEuSIteM5pCMDdYM9puH7",
+    "target" : "oBu9Qgu4w-uv3bPCTyRhO",
+    "sourcePort" : "oit3iRoR-hVm_5cUWRTZc$$jtUgYKj82wUhJBy31cBbt",
+    "targetPort" : "in"
+  } ]
+}

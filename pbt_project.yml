@@ -40,7 +40,33 @@ datasets:
         author: kundandombale@outlook.com
         createdAt: '2024-11-27 07:48:39'
 templates: {}
-jobs: {}
+jobs:
+  jobs/test_job:
+    name: test_job
+    description: ''
+    fabricUID: 19315
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 0 0 1/1 * ? *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/pl_xplore_phrophecy_source_gem
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-11-27 08:49:57'
+    author: kundandombale@outlook.com
+    models: []
+    sqlProjects: []
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0

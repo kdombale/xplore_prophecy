@@ -1,0 +1,105 @@
+{
+  "fabric_id" : "19315",
+  "components" : [ {
+    "ScriptComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/test_job/Script_1--342935075.py",
+      "nodeName" : "Script_1",
+      "id" : "rIxXGw9tFLh8v_ra9k6Vr$$dEuSIteM5pCMDdYM9puH7",
+      "language" : "python",
+      "content" : "print('job started')"
+    }
+  }, {
+    "PipelineComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pl_xplore_phrophecy_source_gem-1.0-py3-none-any.whl",
+      "nodeName" : "pl_xplore_phrophecy_source_gem",
+      "id" : "oBu9Qgu4w-uv3bPCTyRhO",
+      "language" : "python",
+      "pipelineId" : "pipelines/pl_xplore_phrophecy_source_gem"
+    }
+  } ],
+  "request" : {
+    "format" : "MULTI_TASK",
+    "name" : "test_job",
+    "job_clusters" : [ {
+      "job_cluster_key" : "test_job_default_small",
+      "new_cluster" : {
+        "spark_version" : "13.3.x-scala2.12",
+        "node_type_id" : "i3.xlarge",
+        "num_workers" : 0,
+        "custom_tags" : {
+          "ResourceClass" : "SingleNode"
+        },
+        "enable_elastic_disk" : false,
+        "spark_conf" : {
+          "spark.master" : "local[*, 4]",
+          "spark.databricks.cluster.profile" : "singleNode",
+          "spark.prophecy.metadata.fabric.id" : "19315",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/test_job",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.metadata.user.id" : "7698",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsiJryjIyS9KjS/IKMovyEhNrowvzi8tSk6NT0/NVbJSKsgsSM3JzEst1iegtBYAPtkitE0AAAA=",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.prophecy.execution.metrics.disabled" : "true",
+          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.databricks.isv.product" : "prophecy"
+        },
+        "spark_env_vars" : {
+          "PYSPARK_PYTHON" : "/databricks/python3/bin/python3"
+        },
+        "runtime_engine" : "STANDARD",
+        "aws_attributes" : {
+          "first_on_demand" : 1,
+          "availability" : "SPOT_WITH_FALLBACK",
+          "zone_id" : "auto",
+          "spot_bid_price_percent" : 100
+        },
+        "data_security_mode" : "SINGLE_USER"
+      }
+    } ],
+    "email_notifications" : { },
+    "tasks" : [ {
+      "task_key" : "Script_1",
+      "job_cluster_key" : "test_job_default_small",
+      "spark_python_task" : {
+        "python_file" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/test_job/Script_1--342935075.py"
+      },
+      "email_notifications" : { }
+    }, {
+      "task_key" : "pl_xplore_phrophecy_source_gem",
+      "depends_on" : [ {
+        "task_key" : "Script_1"
+      } ],
+      "job_cluster_key" : "test_job_default_small",
+      "python_wheel_task" : {
+        "package_name" : "pl_xplore_phrophecy_source_gem",
+        "entry_point" : "main",
+        "parameters" : [ "-i", "default", "-O", "{}" ]
+      },
+      "libraries" : [ {
+        "maven" : {
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.5.0"
+        }
+      }, {
+        "pypi" : {
+          "package" : "prophecy-libs==1.9.24"
+        }
+      }, {
+        "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pl_xplore_phrophecy_source_gem-1.0-py3-none-any.whl"
+      } ],
+      "email_notifications" : { }
+    } ],
+    "max_concurrent_runs" : 1,
+    "schedule" : {
+      "quartz_cron_expression" : "0 0 0 1/1 * ? *",
+      "timezone_id" : "UTC",
+      "pause_status" : "PAUSED"
+    }
+  },
+  "cluster_mode" : {
+    "clusterMode" : "Single"
+  },
+  "secret_scope" : "prophecy_jobs_10053",
+  "sorted_processes" : [ "rIxXGw9tFLh8v_ra9k6Vr$$dEuSIteM5pCMDdYM9puH7", "oBu9Qgu4w-uv3bPCTyRhO" ]
+}
